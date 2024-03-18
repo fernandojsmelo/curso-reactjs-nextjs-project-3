@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { theme } from '../../styles/theme';
 
 const titleSize = {
   small: (theme) => css`
@@ -12,8 +13,15 @@ const titleSize = {
   `,
   huge: (theme) => css`
     font-size: ${theme.fonts.sizes.xhuge};
+    ${mediaFont(theme)};
   `,
 };
+
+const mediaFont = (theme) => css`
+  @media ${theme.media.lteMedium} (max-width: 768px) {
+    font-size: ${theme.fonts.sizes.xlarge};
+  }
+`;
 
 const titleCase = (uppercase) => css`
   text-transform: ${uppercase ? 'uppercase' : 'none'};
